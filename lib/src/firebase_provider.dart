@@ -49,7 +49,7 @@ class FirebaseProvider extends Provider {
             ? user.isEmailVerified
             : true;
 
-    if (user.isEmailVerified == true) {
+    if (data[User.KEY_IS_VERIFIED] == true) {
       IdTokenResult idTokenResult = await user.getIdToken(refresh: true);
       data[User.KEY_TOKEN] = idTokenResult.token;
       data[User.KEY_EXPIRED_AT] = idTokenResult.expirationTime;

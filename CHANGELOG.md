@@ -1,3 +1,7 @@
+## [0.0.5] - v0.0.5
+
+* Fix token exchange
+
 ## [0.0.4] - v0.0.4
 
 * Fix `is_verified` value
