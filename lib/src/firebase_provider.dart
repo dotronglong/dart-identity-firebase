@@ -43,8 +43,11 @@ class FirebaseProvider extends Provider {
     Map data = Map();
     data[User.KEY_ID] = user.uid;
     data[User.KEY_EMAIL] = user.email;
-    data[User.KEY_IS_VERIFIED] = user.isEmailVerified;
     data[User.KEY_IS_ENABLED] = true;
+    data[User.KEY_IS_VERIFIED] =
+        user.providerData.last.providerId == EmailAuthProvider.providerId
+            ? user.isEmailVerified
+            : true;
 
     if (user.isEmailVerified == true) {
       IdTokenResult idTokenResult = await user.getIdToken(refresh: true);

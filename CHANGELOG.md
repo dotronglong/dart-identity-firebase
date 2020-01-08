@@ -1,3 +1,7 @@
+## [0.0.4] - v0.0.4
+
+* Fix `is_verified` value
+
 ## [0.0.3] - v0.0.3
 
 * Improve sign in with email
