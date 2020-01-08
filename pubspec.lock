@@ -211,7 +211,7 @@ packages:
     source: hosted
     version: "1.5.5"
   sso:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: sso
       url: "https://pub.dartlang.org"
