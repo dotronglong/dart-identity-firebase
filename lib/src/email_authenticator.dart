@@ -4,7 +4,7 @@ import 'package:identity/identity.dart';
 import 'package:sso/sso.dart';
 
 import 'email_signin_page.dart';
-import 'helpers.dart';
+import 'firebase_provider.dart';
 
 class EmailAuthenticator implements Authenticator {
   const EmailAuthenticator();
@@ -30,9 +30,7 @@ class EmailAuthenticator implements Authenticator {
     return FirebaseAuth.instance
         .signInWithCredential(
             EmailAuthProvider.getCredential(email: email, password: password))
-        .then((result) {
-          return getUser(result.user);
-        })
+        .then((result) => FirebaseProvider.convert(result.user))
         .then((user) => Identity.of(context).user = user)
         .catchError(Identity.of(context).error);
   }
@@ -47,7 +45,7 @@ class EmailAuthenticator implements Authenticator {
             await result.user.sendEmailVerification();
           }
 
-          return getUser(result.user);
+          return FirebaseProvider.convert(result.user);
         })
         .then((user) => Identity.of(context).user = user)
         .catchError(Identity.of(context).error);

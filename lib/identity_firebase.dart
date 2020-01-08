@@ -1,4 +1,4 @@
 library identity_firebase;
 
 export 'src/email_authenticator.dart';
-export 'src/provider.dart';
+export 'src/firebase_provider.dart';
