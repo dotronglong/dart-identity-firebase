@@ -24,12 +24,9 @@ class EmailAuthenticator implements Authenticator {
   @override
   Future<void> authenticate(BuildContext context, [Map parameters]) async {
     _validate(parameters);
-    final String email = parameters["email"];
-    final String password = parameters["password"];
-
     return FirebaseAuth.instance
-        .signInWithCredential(
-            EmailAuthProvider.getCredential(email: email, password: password))
+        .signInWithEmailAndPassword(
+            email: parameters["email"], password: parameters["password"])
         .then((result) => FirebaseProvider.convert(result.user))
         .then((user) => Identity.of(context).user = user)
         .catchError(Identity.of(context).error);
