@@ -6,8 +6,8 @@ import 'package:sso/sso.dart';
 import 'email_signin_page.dart';
 import 'firebase_provider.dart';
 
-class EmailAuthenticator implements Authenticator {
-  const EmailAuthenticator();
+class FirebaseEmailAuthenticator implements Authenticator {
+  const FirebaseEmailAuthenticator();
 
   @override
   WidgetBuilder get action => (context) => ActionButton(
@@ -19,7 +19,7 @@ class EmailAuthenticator implements Authenticator {
         Icons.email,
         color: Color.fromRGBO(75, 78, 95, 1),
       ),
-      text: "Sign In with Email");
+      text: "Sign In With Email");
 
   @override
   Future<void> authenticate(BuildContext context, [Map parameters]) async {

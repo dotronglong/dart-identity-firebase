@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sso/sso.dart';
 
-import 'email_authenticator.dart';
+import 'firebase_email_authenticator.dart';
 
 class EmailSignInPage extends StatefulWidget {
   final Authenticator authenticator;
@@ -89,13 +89,13 @@ class _EmailSignInPageState extends State<EmailSignInPage> {
                               .authenticator
                               .authenticate(context, parameters);
                         } else if (this.widget.authenticator
-                            is EmailAuthenticator) {
+                            is FirebaseEmailAuthenticator) {
                           await (this.widget.authenticator
-                                  as EmailAuthenticator)
+                                  as FirebaseEmailAuthenticator)
                               .register(context, parameters);
                         } else {
-                          assert(
-                              this.widget.authenticator is EmailAuthenticator);
+                          assert(this.widget.authenticator
+                              is FirebaseEmailAuthenticator);
                         }
                         if (this.mounted) {
                           setState(() {
