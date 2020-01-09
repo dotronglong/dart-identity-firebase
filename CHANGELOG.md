@@ -1,3 +1,9 @@
+## [0.0.6] - v0.0.6
+
+* Add Sign In With Phone
+* Change name of `EmailAuthenticator` to `FirebaseEmailAuthenticator`
+* Default is no authenticators loaded
+
 ## [0.0.5] - v0.0.5
 
 * Fix token exchange

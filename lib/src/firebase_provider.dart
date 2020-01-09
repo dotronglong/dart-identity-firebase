@@ -3,11 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sso/sso.dart';
 
-import 'email_authenticator.dart';
-
 class FirebaseProvider extends Provider {
-  FirebaseProvider(
-      [List<Authenticator> authenticators = const [EmailAuthenticator()]])
+  FirebaseProvider([List<Authenticator> authenticators = const []])
       : super(authenticators);
 
   @override
