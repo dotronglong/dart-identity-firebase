@@ -6,8 +6,8 @@ import 'package:sso/sso.dart';
 import 'firebase_provider.dart';
 import 'phone_signin_page.dart';
 
-class FirebasePhoneAuthenticator implements Authenticator {
-  const FirebasePhoneAuthenticator();
+class FirebasePhoneAuthenticator with WillNotify implements Authenticator {
+  FirebasePhoneAuthenticator();
 
   @override
   WidgetBuilder get action => (context) => ActionButton(
@@ -50,9 +50,8 @@ class FirebasePhoneAuthenticator implements Authenticator {
         verificationCompleted: (AuthCredential credential) =>
             authenticateWithCredential(context, credential),
         verificationFailed: (AuthException authException) {
-          Scaffold.of(context).showSnackBar(SnackBar(
-              content: Text(
-                  'Phone number verification failed. Code: ${authException.code}. Message: ${authException.message}')));
+          notifier.notify(context,
+              'Phone number verification failed. Code: ${authException.code}. Message: ${authException.message}');
         },
         codeSent: (String verificationId, [int forceResendingToken]) =>
             _navigateToPhoneVerificationPage(

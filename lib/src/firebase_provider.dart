@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sso/sso.dart';
 
+import 'snackbar_notifier.dart';
+
 class FirebaseProvider extends Provider {
   FirebaseProvider([List<Authenticator> authenticators = const []])
       : super(authenticators);
@@ -31,6 +33,9 @@ class FirebaseProvider extends Provider {
 
   @override
   ThemeData get theme => null;
+
+  @override
+  Notifier get notifier => SnackBarNotifier();
 
   static Future<User> convert(FirebaseUser user) async {
     if (user == null) {

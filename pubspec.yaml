@@ -1,6 +1,6 @@
 name: identity_firebase
 description: Firebase provider for Identity package
-version: 0.0.7
+version: 0.1.0
 author: Long Do <me@dotronglong.com>
 homepage: https://github.com/dotronglong/dart-identity-firebase
 
@@ -10,8 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  sso: ^0.0.6
-  identity: ^0.0.6
+  sso: ^0.1.0
+  identity: ^0.1.0
   firebase_auth: ^0.15.3
 
 dev_dependencies:
