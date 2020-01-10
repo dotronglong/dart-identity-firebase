@@ -54,4 +54,8 @@ class FirebaseProvider extends Provider {
 
     return User(data);
   }
+
+  @override
+  void notify(BuildContext context, String message, [Map parameters]) =>
+      Scaffold.of(context).showSnackBar(SnackBar(content: Text(message)));
 }

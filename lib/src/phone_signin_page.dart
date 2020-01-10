@@ -58,22 +58,24 @@ class _PhoneSignInPageState extends State<PhoneSignInPage> {
                           padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: RaisedButton.icon(
                             icon: Icon(Icons.send),
-                            onPressed: _isLoading ? null : () async {
-                              if (_form.currentState.validate()) {
-                                if (this.mounted) {
-                                  setState(() {
-                                    _isLoading = true;
-                                  });
-                                }
-                                await widget.authenticator
-                                    .send(context, _controllerPhoneNumber.text);
-                                if (this.mounted) {
-                                  setState(() {
-                                    _isLoading = false;
-                                  });
-                                }
-                              }
-                            },
+                            onPressed: _isLoading
+                                ? null
+                                : () async {
+                                    if (_form.currentState.validate()) {
+                                      if (this.mounted) {
+                                        setState(() {
+                                          _isLoading = true;
+                                        });
+                                      }
+                                      await widget.authenticator.send(
+                                          context, _controllerPhoneNumber.text);
+                                      if (this.mounted) {
+                                        setState(() {
+                                          _isLoading = false;
+                                        });
+                                      }
+                                    }
+                                  },
                             label: const Text('Send Code'),
                           ),
                         ),
@@ -139,22 +141,25 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                         padding: const EdgeInsets.symmetric(vertical: 16.0),
                         child: RaisedButton.icon(
                           icon: Icon(Icons.check_circle_outline),
-                          onPressed: _isLoading ? null : () async {
-                            if (this.mounted) {
-                              setState(() {
-                                _isLoading = true;
-                              });
-                            }
-                            await widget.authenticator.authenticate(context, {
-                              "verification_id": widget.verificationId,
-                              "code": _controllerCode.text
-                            });
-                            if (this.mounted) {
-                              setState(() {
-                                _isLoading = false;
-                              });
-                            }
-                          },
+                          onPressed: _isLoading
+                              ? null
+                              : () async {
+                                  if (this.mounted) {
+                                    setState(() {
+                                      _isLoading = true;
+                                    });
+                                  }
+                                  await widget.authenticator.authenticate(
+                                      context, {
+                                    "verification_id": widget.verificationId,
+                                    "code": _controllerCode.text
+                                  });
+                                  if (this.mounted) {
+                                    setState(() {
+                                      _isLoading = false;
+                                    });
+                                  }
+                                },
                           label: const Text('Proceed'),
                         ),
                       ),
