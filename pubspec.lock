@@ -216,7 +216,7 @@ packages:
       name: sso
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.2"
   stack_trace:
     dependency: transitive
     description:

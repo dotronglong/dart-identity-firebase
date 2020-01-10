@@ -50,7 +50,7 @@ class FirebasePhoneAuthenticator with WillNotify implements Authenticator {
         verificationCompleted: (AuthCredential credential) =>
             authenticateWithCredential(context, credential),
         verificationFailed: (AuthException authException) {
-          notifier.notify(context,
+          notify(context,
               'Phone number verification failed. Code: ${authException.code}. Message: ${authException.message}');
         },
         codeSent: (String verificationId, [int forceResendingToken]) =>
