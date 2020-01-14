@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:identity/identity.dart';
 import 'package:sso/sso.dart';
 
-import 'firebase_provider.dart';
 import 'phone_signin_page.dart';
 
-class FirebasePhoneAuthenticator with WillNotify implements Authenticator {
+class FirebasePhoneAuthenticator
+    with WillNotify, WillConvertUser
+    implements Authenticator {
   FirebasePhoneAuthenticator();
 
   @override
@@ -37,7 +38,7 @@ class FirebasePhoneAuthenticator with WillNotify implements Authenticator {
       BuildContext context, AuthCredential credential) {
     return FirebaseAuth.instance
         .signInWithCredential(credential)
-        .then((result) => FirebaseProvider.convert(result.user))
+        .then((result) => convert(result.user))
         .then((user) => Identity.of(context).user = user)
         .catchError(Identity.of(context).error);
   }

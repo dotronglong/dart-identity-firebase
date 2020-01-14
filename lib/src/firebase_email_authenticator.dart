@@ -4,10 +4,9 @@ import 'package:identity/identity.dart';
 import 'package:sso/sso.dart';
 
 import 'email_signin_page.dart';
-import 'firebase_provider.dart';
 
-class FirebaseEmailAuthenticator implements Authenticator {
-  const FirebaseEmailAuthenticator();
+class FirebaseEmailAuthenticator with WillConvertUser implements Authenticator {
+  FirebaseEmailAuthenticator();
 
   @override
   WidgetBuilder get action => (context) => ActionButton(
@@ -27,7 +26,7 @@ class FirebaseEmailAuthenticator implements Authenticator {
     return FirebaseAuth.instance
         .signInWithEmailAndPassword(
             email: parameters["email"], password: parameters["password"])
-        .then((result) => FirebaseProvider.convert(result.user))
+        .then((result) => convert(result.user))
         .then((user) => Identity.of(context).user = user)
         .catchError(Identity.of(context).error);
   }
@@ -42,7 +41,7 @@ class FirebaseEmailAuthenticator implements Authenticator {
             await result.user.sendEmailVerification();
           }
 
-          return FirebaseProvider.convert(result.user);
+          return convert(result.user);
         })
         .then((user) => Identity.of(context).user = user)
         .catchError(Identity.of(context).error);
