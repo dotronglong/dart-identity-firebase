@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:identity/identity.dart';
 import 'package:sso/sso.dart';
@@ -22,18 +23,21 @@ class IdentityFirebaseProvider extends Provider {
   }
 
   static Future<void> init(BuildContext context,
-      List<Authenticator> authenticators, WidgetBuilder success) {
+      List<Authenticator> authenticators, WidgetBuilder success,
+      {ThemeData theme, Widget headerImage}) {
     Provider provider = IdentityFirebaseProvider(authenticators ?? []);
     return Identity.of(context).init(provider, success,
         builder: (context) => SignInPage(provider,
+            theme: theme,
             header: Container(
               margin: EdgeInsets.only(top: 16, bottom: 32),
-              child: Image.asset(
-                "images/firebase.png",
-                package: 'identity_firebase',
-                width: 64,
-                height: 64,
-              ),
+              child: headerImage ??
+                  Image.asset(
+                    "images/firebase.png",
+                    package: 'identity_firebase',
+                    width: 64,
+                    height: 64,
+                  ),
             )));
   }
 }

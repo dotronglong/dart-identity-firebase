@@ -1,3 +1,7 @@
+## [0.2.0+1] - v0.2.0+1
+
+* Add ability to change theme, header's image in `init`
+
 ## [0.2.0] - v0.2.0
 
 * Upgrade `identity: ^0.2.0`
