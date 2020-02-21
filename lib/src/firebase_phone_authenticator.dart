@@ -14,13 +14,13 @@ class FirebasePhoneAuthenticator
   WidgetBuilder get action => (context) => ActionButton(
       onPressed: () => Navigator.push(context,
           MaterialPageRoute(builder: (context) => PhoneSignInPage(this))),
-      color: Color.fromRGBO(0, 166, 96, 1),
-      textColor: Colors.white,
+      color: Color.fromRGBO(51, 51, 61, 1),
+      textColor: Color.fromRGBO(56, 239, 186, 1),
       icon: Icon(
         Icons.phone_iphone,
-        color: Color.fromRGBO(0, 166, 96, 1),
+        color: Color.fromRGBO(56, 239, 186, 1),
       ),
-      text: "Sign In With Phone");
+      text: "Sign in with Phone");
 
   @override
   Future<void> authenticate(BuildContext context, [Map parameters]) async {

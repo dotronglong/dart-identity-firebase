@@ -12,13 +12,13 @@ class FirebaseEmailAuthenticator with WillConvertUser implements Authenticator {
   WidgetBuilder get action => (context) => ActionButton(
       onPressed: () => Navigator.push(context,
           MaterialPageRoute(builder: (context) => EmailSignInPage(this))),
-      color: Color.fromRGBO(75, 78, 95, 1),
+      color: Color.fromRGBO(93, 16, 74, 1),
       textColor: Colors.white,
       icon: Icon(
         Icons.email,
-        color: Color.fromRGBO(75, 78, 95, 1),
+        color: Colors.white,
       ),
-      text: "Sign In With Email");
+      text: "Sign in with Email");
 
   @override
   Future<void> authenticate(BuildContext context, [Map parameters]) async {
