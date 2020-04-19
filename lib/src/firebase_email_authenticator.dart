@@ -6,12 +6,16 @@ import 'package:sso/sso.dart';
 import 'email_signin_page.dart';
 
 class FirebaseEmailAuthenticator with WillConvertUser implements Authenticator {
-  FirebaseEmailAuthenticator();
+  final WidgetBuilder builder;
+
+  FirebaseEmailAuthenticator({this.builder});
 
   @override
   WidgetBuilder get action => (context) => ActionButton(
-      onPressed: () => Navigator.push(context,
-          MaterialPageRoute(builder: (context) => EmailSignInPage(this))),
+      onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: builder ?? (context) => EmailSignInPage(this))),
       color: Color.fromRGBO(93, 16, 74, 1),
       textColor: Colors.white,
       icon: Icon(

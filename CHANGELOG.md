@@ -1,3 +1,7 @@
+## 0.2.3
+
+* Allow to use customized email sign in page
+
 ## 0.2.2
 
 * Upgrade `identity: ^0.2.2`
