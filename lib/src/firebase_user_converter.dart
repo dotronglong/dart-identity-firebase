@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:sso/sso.dart';
+import 'package:identity/identity.dart';
 
 class FirebaseUserConverter implements UserConverter {
   @override

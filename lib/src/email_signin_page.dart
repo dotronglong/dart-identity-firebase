@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sso/sso.dart';
+import 'package:identity/identity.dart';
 
 import 'firebase_email_authenticator.dart';
 

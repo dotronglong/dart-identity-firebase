@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sso/sso.dart';
+import 'package:identity/identity.dart';
 
 class SnackBarNotifier extends Notifier {
   @override

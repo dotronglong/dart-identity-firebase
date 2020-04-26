@@ -1,3 +1,7 @@
+## 0.3.0
+
+- Upgrade `identity`
+
 ## 0.2.3
 
 * Allow to use customized email sign in page
